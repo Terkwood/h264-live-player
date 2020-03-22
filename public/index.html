@@ -4,7 +4,7 @@
   </head>
   <body>
 
-    <button style="height:400px;width:400px" type="button" onclick="wsavc.playStream();console.log('hi')">Start Video</button>
+    <button id="start_video" style="height:400px;width:400px" type="button" onclick="wsavc.playStream();hideButton()">Start Video</button>
     <!--button type="button" onclick="wsavc.disconnect()">Disconnect</button-->
     <br/>
 
@@ -20,6 +20,9 @@ var uri = "ws://" + document.location.host;
 var wsavc = new WSAvcPlayer(canvas, "webgl", 1, 35);
 wsavc.connect(uri);
 
+window.hideButton = function() {
+  document.getElementById("start_video").style.display = "none";
+};
 
 //expose instance for button callbacks
 window.wsavc = wsavc;
